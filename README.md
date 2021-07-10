@@ -1,4 +1,4 @@
-# endcovi
+# EndCoVi
 
 A new Flutter project.
 
