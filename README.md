@@ -1,4 +1,4 @@
-# EndCoVi [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue)](https://github.com/KSB-tqk/HooCare/blob/master/LICENSE) 
+# EndCoVi [![GitHub license](https://img.shields.io/badge/license-MIT-green?style=plastic)](https://github.com/KSB-tqk/HooCare/blob/master/LICENSE) 
 
 A new Flutter project.
 
