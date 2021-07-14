@@ -1,4 +1,4 @@
-import 'package:endcovi/pages/news/news_controller.dart';
+import 'package:endcovi/pages/newsfeed/news_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
