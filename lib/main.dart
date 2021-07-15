@@ -1,3 +1,5 @@
+import 'package:endcovi/constants.dart';
+import 'package:endcovi/pages/login/login_page.dart';
 import 'package:endcovi/routes/app_page.dart';
 import 'package:endcovi/routes/app_routes.dart';
 import 'package:endcovi/value/lang/localization_service.dart';
@@ -14,10 +16,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'EndCoVi',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+          primaryColor: kPrimaryColor, scaffoldBackgroundColor: Colors.white),
       initialRoute: AppRoutes.DASHBOARD,
-      getPages: AppPages.list,
+      // getPages: AppPages.list,
+      home: LoginPage(),
       translations: LocalizationService(),
       locale: Get.deviceLocale,
       debugShowCheckedModeBanner: false,
