@@ -2,3 +2,7 @@
 
 A Social Media project.
 
+<center>
+<img src="assets/images/welcome_image.png"/>
+</center>
+
