@@ -1,5 +1,5 @@
 import 'package:endcovi/constants.dart';
-import 'package:endcovi/pages/login/login_page.dart';
+import 'package:endcovi/pages/welcome_page/welcome_page.dart';
 import 'package:endcovi/routes/app_page.dart';
 import 'package:endcovi/routes/app_routes.dart';
 import 'package:endcovi/value/lang/localization_service.dart';
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           primaryColor: kPrimaryColor, scaffoldBackgroundColor: Colors.white),
       initialRoute: AppRoutes.DASHBOARD,
       // getPages: AppPages.list,
-      home: LoginPage(),
+      home: WelcomePage(),
       translations: LocalizationService(),
       locale: Get.deviceLocale,
       debugShowCheckedModeBanner: false,
