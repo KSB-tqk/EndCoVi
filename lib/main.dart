@@ -17,9 +17,8 @@ class MyApp extends StatelessWidget {
       title: 'EndCoVi',
       theme: ThemeData(
           primaryColor: kPrimaryColor, scaffoldBackgroundColor: Colors.white),
-      initialRoute: AppRoutes.DASHBOARD,
-      // getPages: AppPages.list,
-      home: WelcomePage(),
+      initialRoute: Routes.WELCOME,
+      getPages: AppPages.list,
       translations: LocalizationService(),
       locale: Get.deviceLocale,
       debugShowCheckedModeBanner: false,

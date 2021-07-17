@@ -2,9 +2,9 @@ import 'package:endcovi/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Background extends StatelessWidget {
+class LoginBackground extends StatelessWidget {
   final Widget child;
-  const Background({
+  const LoginBackground({
     Key? key,
     required this.child,
   }) : super(key: key);
@@ -46,7 +46,7 @@ class Background extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Text(
-                                    "Welcome to ",
+                                    "Sign in to ",
                                     style: TextStyle(
                                         fontWeight: FontWeight.normal,
                                         fontSize: 18,
@@ -73,14 +73,6 @@ class Background extends StatelessWidget {
                     height: size.height * 0.01,
                   ),
                 ],
-              ),
-            ),
-            Positioned(
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Image.asset(
-                  "assets/images/welcome_bar_line.png",
-                ),
               ),
             ),
             child,
