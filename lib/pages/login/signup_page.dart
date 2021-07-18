@@ -6,7 +6,7 @@ import 'package:endcovi/pages/login/widgets/login_background.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LoginPage extends StatelessWidget {
+class SignUpPage extends StatelessWidget {
   final AuthController controller = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
@@ -30,8 +30,12 @@ class LoginPage extends StatelessWidget {
               RoundedPasswordField(
                 onChanged: (value) {},
               ),
+              RoundedPasswordField(
+                onChanged: (repeatValue) {},
+                hintText: "Confirm Your Password",
+              ),
               RoundedButton(
-                text: "SIGN IN",
+                text: "SIGN UP",
                 press: () {},
                 textColor: Colors.white,
               ),
