@@ -1,13 +1,12 @@
-import 'package:endcovi/components/OutlineButton.dart';
-import 'package:endcovi/components/RoundedButton.dart';
+import 'package:endcovi/components/outline_button.dart';
+import 'package:endcovi/components/rounded_button.dart';
 import 'package:endcovi/constants.dart';
-import 'package:endcovi/pages/welcome_page/welcome_page_controller.dart';
-import 'package:endcovi/pages/welcome_page/widgets/welcome_page_background.dart';
+import 'package:endcovi/pages/login/widgets/welcome_page_background.dart';
 import 'package:endcovi/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class WelcomePage extends GetView<WelcomeController> {
+class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -33,18 +32,12 @@ class WelcomePage extends GetView<WelcomeController> {
                 },
                 textColor: Colors.white,
               ),
-              TextButton(
-                onPressed: () {
-                  Get.toNamed(Routes.LOGIN);
-                },
-                child: Text("Login"),
-              ),
               SizedBox(
                 width: size.height * 0.1,
               ),
               Container(
                 margin: EdgeInsets.symmetric(vertical: 10),
-                width: size.width * 0.6,
+                width: size.width * 0.8,
                 child: Material(
                   child: RoundedOutlineButton(
                     strokeWidth: 4,
@@ -57,7 +50,7 @@ class WelcomePage extends GetView<WelcomeController> {
                             fontWeight: FontWeight.bold,
                             color: kPrimaryColor)),
                     onPressed: () {
-                      print("Sign up is clicked");
+                      Get.toNamed(Routes.SIGNUP);
                     },
                   ),
                 ),
