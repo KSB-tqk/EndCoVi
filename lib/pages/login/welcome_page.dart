@@ -41,7 +41,7 @@ class WelcomePage extends StatelessWidget {
                 child: Material(
                   child: RoundedOutlineButton(
                     strokeWidth: 4,
-                    radius: 24,
+                    radius: 29,
                     gradient: LinearGradient(
                         colors: [startLinearColor, endLinearColor]),
                     child: Text('SIGN UP',

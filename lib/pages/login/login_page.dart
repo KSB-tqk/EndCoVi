@@ -6,7 +6,15 @@ import 'package:endcovi/pages/login/widgets/login_background.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final _formKey = GlobalKey<FormState>();
   final AuthController controller = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
@@ -15,29 +23,36 @@ class LoginPage extends StatelessWidget {
       body: LoginBackground(
         child: Container(
           width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: size.height * 0.01,
-              ),
-              RoundedInputField(
-                controller: controller.emailController,
-                hintText: "Your Email",
-                onChanged: (value) {},
-                icon: Icons.person,
-              ),
-              RoundedPasswordField(
-                controller: controller.passwordController,
-                onChanged: (value) {},
-              ),
-              RoundedButton(
-                text: "SIGN IN",
-                press: () => controller.loginWithEmailAndPassword(),
-                textColor: Colors.white,
-              ),
-            ],
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: size.height * 0.01,
+                ),
+                RoundedInputField(
+                  controller: controller.emailController,
+                  hintText: "Your Email",
+                  onChanged: (value) {},
+                  icon: Icons.person,
+                ),
+                RoundedPasswordField(
+                  controller: controller.passwordController,
+                  onChanged: (value) {},
+                ),
+                RoundedButton(
+                  text: "SIGN IN",
+                  press: () {
+                    if (_formKey.currentState!.validate()) {
+                      controller.loginWithEmailAndPassword();
+                    }
+                  },
+                  textColor: Colors.white,
+                ),
+              ],
+            ),
           ),
         ),
       ),

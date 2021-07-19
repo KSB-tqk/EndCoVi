@@ -11,13 +11,11 @@ class AuthController extends GetxController {
   loginWithEmailAndPassword() async {
     await AuthenticService.instance
         .login(emailController.text, passwordController.text);
-    Get.offAllNamed(Routes.DASHBOARD);
   }
 
   signUpWithEmailAndPassword() async {
     await AuthenticService.instance
         .createUser(emailController.text, passwordController.text);
-    Get.offAllNamed(Routes.LOGIN);
   }
 
   signOutWithEmail() async {

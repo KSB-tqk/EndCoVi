@@ -1,3 +1,4 @@
+import 'package:endcovi/routes/app_routes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
@@ -30,6 +31,7 @@ class AuthenticService {
     try {
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
+      Get.offAllNamed(Routes.LOGIN);
     } catch (e) {
       Get.snackbar("Error creating account", e.toString(),
           snackPosition: SnackPosition.BOTTOM);
@@ -39,6 +41,7 @@ class AuthenticService {
   Future login(String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
+      Get.offAllNamed(Routes.DASHBOARD);
     } catch (e) {
       Get.snackbar("Error login account", e.toString(),
           snackPosition: SnackPosition.BOTTOM);
