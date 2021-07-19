@@ -23,16 +23,18 @@ class LoginPage extends StatelessWidget {
                 width: size.height * 0.01,
               ),
               RoundedInputField(
+                controller: controller.emailController,
                 hintText: "Your Email",
                 onChanged: (value) {},
                 icon: Icons.person,
               ),
               RoundedPasswordField(
+                controller: controller.passwordController,
                 onChanged: (value) {},
               ),
               RoundedButton(
                 text: "SIGN IN",
-                press: () {},
+                press: () => controller.loginWithEmailAndPassword(),
                 textColor: Colors.white,
               ),
             ],
@@ -40,6 +42,5 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

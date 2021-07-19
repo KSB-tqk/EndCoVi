@@ -23,20 +23,23 @@ class SignUpPage extends StatelessWidget {
                 width: size.height * 0.01,
               ),
               RoundedInputField(
+                controller: controller.emailController,
                 hintText: "Your Email",
                 onChanged: (value) {},
                 icon: Icons.person,
               ),
               RoundedPasswordField(
+                controller: controller.passwordController,
                 onChanged: (value) {},
               ),
               RoundedPasswordField(
+                controller: controller.confirmPasswordController,
                 onChanged: (repeatValue) {},
                 hintText: "Confirm Your Password",
               ),
               RoundedButton(
                 text: "SIGN UP",
-                press: () {},
+                press: () => controller.signUpWithEmailAndPassword(),
                 textColor: Colors.white,
               ),
             ],
@@ -44,6 +47,5 @@ class SignUpPage extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

@@ -1,7 +1,21 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 
-class AuthController extends GetxController {
+class AuthenticService {
+  AuthenticService._privateConstructor();
+  static final AuthenticService instance =
+      AuthenticService._privateConstructor();
+
+  FirebaseAuth? _firebaseAuth;
+
+  Future<FirebaseApp> initializeFirebase() async {
+    FirebaseApp firebaseApp = await Firebase.initializeApp();
+    _firebaseAuth = FirebaseAuth.instance;
+    await Future.delayed(Duration(seconds: 1));
+    return firebaseApp;
+  }
+
   FirebaseAuth _auth = FirebaseAuth.instance;
   Rxn<User> _firebaseUser = Rxn<User>();
 
@@ -12,7 +26,7 @@ class AuthController extends GetxController {
     _firebaseUser.bindStream(_auth.authStateChanges());
   }
 
-  void createUser(String email, String password) async {
+  Future createUser(String email, String password) async {
     try {
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
@@ -22,7 +36,7 @@ class AuthController extends GetxController {
     }
   }
 
-  void login(String email, String password) async {
+  Future login(String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
     } catch (e) {
