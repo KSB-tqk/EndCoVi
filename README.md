@@ -2,7 +2,5 @@
 
 A Social Media project.
 
-<center>
-<img src="assets/images/welcome_phone_image.png"/>
-</center>
+![Alt Text](https://cdn.dribbble.com/users/6698039/screenshots/14857508/media/2f7e31e35612645ab8ebfa5f584cac87.gif)
 
