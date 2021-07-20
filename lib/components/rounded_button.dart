@@ -18,8 +18,9 @@ class RoundedButton extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
-      height: 60,
+      height: size.height * 0.07,
       width: size.width * 0.8,
+      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
       decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(
             Radius.circular(29.0),
@@ -28,7 +29,7 @@ class RoundedButton extends StatelessWidget {
             BoxShadow(
               color: kPrimaryColor.withOpacity(0.2),
               spreadRadius: 4,
-              blurRadius: 10,
+              blurRadius: 5,
               offset: Offset(0, 3),
             )
           ]),
@@ -43,7 +44,7 @@ class RoundedButton extends StatelessWidget {
                   fontWeight: FontWeight.bold, fontSize: 20, color: textColor),
             ),
             style: TextButton.styleFrom(
-              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 0),
+              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 0),
               backgroundColor: kPrimaryColor,
             ),
           ),

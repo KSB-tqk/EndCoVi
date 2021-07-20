@@ -20,6 +20,7 @@ class RoundedOutlineButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return CustomPaint(
       painter: _painter,
       child: GestureDetector(
@@ -29,7 +30,9 @@ class RoundedOutlineButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(_radius),
           onTap: _callback,
           child: Container(
-            constraints: BoxConstraints(minWidth: 88, minHeight: 48),
+            height: size.height * 0.05,
+            width: size.width * 0.8,
+            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
