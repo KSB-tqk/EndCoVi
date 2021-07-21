@@ -1,4 +1,5 @@
 import 'package:endcovi/constants.dart';
+import 'package:endcovi/pages/splash/splash_binding.dart';
 import 'package:endcovi/routes/app_page.dart';
 import 'package:endcovi/routes/app_routes.dart';
 import 'package:endcovi/value/lang/localization_service.dart';
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
       title: 'EndCoVi',
       theme: ThemeData(
           primaryColor: kPrimaryColor, scaffoldBackgroundColor: Colors.white),
-      initialRoute: Routes.WELCOME,
+      initialRoute: Routes.SPLASH,
+      initialBinding: SplashBinding(),
       getPages: AppPages.list,
       translations: LocalizationService(),
       locale: Get.deviceLocale,
