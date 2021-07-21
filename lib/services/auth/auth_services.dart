@@ -56,4 +56,6 @@ class AuthenticService {
           snackPosition: SnackPosition.BOTTOM);
     }
   }
+
+  User? getCurrentUser() => FirebaseAuth.instance.currentUser;
 }
