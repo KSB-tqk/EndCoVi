@@ -22,17 +22,10 @@ class RoundedButton extends StatelessWidget {
       width: size.width * 0.8,
       padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
       decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(
-            Radius.circular(29.0),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: kPrimaryColor.withOpacity(0.2),
-              spreadRadius: 4,
-              blurRadius: 5,
-              offset: Offset(0, 3),
-            )
-          ]),
+        borderRadius: const BorderRadius.all(
+          Radius.circular(29.0),
+        ),
+      ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(29),
         child: Material(
