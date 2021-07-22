@@ -16,6 +16,8 @@ class Background extends StatelessWidget {
       child: Container(
         color: Colors.white,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SizedBox(
               height: size.height * 0.01,
@@ -44,26 +46,31 @@ class Background extends StatelessWidget {
                               padding: EdgeInsets.all(10),
                               child: Container(
                                 margin: EdgeInsets.only(right: 20),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      "Welcome to ",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: 18,
-                                          decoration: TextDecoration.none,
-                                          color: Colors.white),
-                                    ),
-                                    Text(
-                                      "EndCoVi",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          decoration: TextDecoration.none,
-                                          fontSize: 23,
-                                          color: Colors.white),
-                                    )
-                                  ],
+                                child: Center(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.baseline,
+                                    textBaseline: TextBaseline.alphabetic,
+                                    children: [
+                                      Text(
+                                        "Welcome to ",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.normal,
+                                            fontSize: 18,
+                                            decoration: TextDecoration.none,
+                                            color: Colors.white),
+                                      ),
+                                      Text(
+                                        "EndCoVi",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            decoration: TextDecoration.none,
+                                            fontSize: 22,
+                                            color: Colors.white),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -84,7 +91,17 @@ class Background extends StatelessWidget {
                 "assets/images/welcome_bar_line.png",
               ),
             ),
-            child,
+            Expanded(
+              flex: 12,
+              child: child,
+            ),
+            Expanded(
+              child: Align(
+                  alignment: Alignment.bottomRight,
+                  child:
+                      Image.asset("assets/images/bottom_right_background.png")),
+              flex: 3,
+            )
           ],
         ),
       ),

@@ -13,17 +13,18 @@ class WelcomePage extends StatelessWidget {
     return Scaffold(
       body: Background(
         child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 40),
           width: double.infinity,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(
                 width: size.height * 0.1,
               ),
-              Image.asset("assets/images/welcome_phone_image.png"),
-              SizedBox(
-                width: size.height * 0.1,
+              Expanded(
+                flex: 6,
+                child: Image.asset("assets/images/welcome_phone_image.png"),
               ),
               RoundedButton(
                 text: "SIGN IN",
@@ -32,11 +33,9 @@ class WelcomePage extends StatelessWidget {
                 },
                 textColor: Colors.white,
               ),
-              SizedBox(
-                width: size.height * 0.1,
-              ),
               Container(
                 margin: EdgeInsets.symmetric(vertical: 10),
+                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
                 width: size.width * 0.8,
                 child: Material(
                   child: RoundedOutlineButton(
@@ -44,17 +43,19 @@ class WelcomePage extends StatelessWidget {
                     radius: 29,
                     gradient: LinearGradient(
                         colors: [startLinearColor, endLinearColor]),
-                    child: Text('SIGN UP',
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: kPrimaryColor)),
+                    child: Center(
+                      child: Text('SIGN UP',
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: kPrimaryColor)),
+                    ),
                     onPressed: () {
                       Get.toNamed(Routes.SIGNUP);
                     },
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

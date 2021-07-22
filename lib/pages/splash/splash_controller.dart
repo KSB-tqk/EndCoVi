@@ -17,9 +17,13 @@ class SplashController extends GetxController {
     final user = AuthenticService.instance.getCurrentUser();
 
     if (user == null) {
-      // Get.offNamed(Routes.WELCOME);
+      new Future.delayed(const Duration(seconds: 2), () {
+        Get.offNamed(Routes.WELCOME);
+      });
     } else {
-      Get.offAllNamed(Routes.DASHBOARD);
+      new Future.delayed(const Duration(seconds: 1), () {
+        Get.offAllNamed(Routes.DASHBOARD);
+      });
     }
   }
 }
