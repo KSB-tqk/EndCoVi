@@ -1,7 +1,8 @@
+import 'package:endcovi/constants.dart';
 import 'package:endcovi/pages/dashboard/dashboard_controller.dart';
 import 'package:endcovi/pages/friend/friend_page.dart';
 import 'package:endcovi/pages/home/home_page.dart';
-import 'package:endcovi/pages/newsfeed/news_page.dart';
+import 'package:endcovi/pages/message/message_page.dart';
 import 'package:endcovi/pages/profile/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,15 +18,15 @@ class DashboardPage extends StatelessWidget {
               index: controller.tabIndex,
               children: [
                 HomePage(),
-                NewsPage(),
+                MessagePage(),
                 FriendPage(),
                 ProfilePage(),
               ],
             ),
           ),
           bottomNavigationBar: BottomNavigationBar(
-            unselectedItemColor: Colors.black,
-            selectedItemColor: Colors.redAccent,
+            unselectedItemColor: kPrimaryLightColor,
+            selectedItemColor: kPrimaryColor,
             onTap: controller.changeTabIndex,
             currentIndex: controller.tabIndex,
             showSelectedLabels: false,
@@ -39,8 +40,8 @@ class DashboardPage extends StatelessWidget {
                 label: 'Home',
               ),
               _bottomNavigationBarItem(
-                icon: Icons.menu_book,
-                label: 'News',
+                icon: Icons.message,
+                label: 'Message',
               ),
               _bottomNavigationBarItem(
                 icon: Icons.person_add,

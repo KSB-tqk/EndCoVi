@@ -4,6 +4,7 @@ import 'package:endcovi/components/rounded_password_field.dart';
 import 'package:endcovi/pages/login/auth_controller.dart';
 import 'package:endcovi/pages/login/widgets/login_background.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 
 class LoginPage extends StatefulWidget {
@@ -16,18 +17,31 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final AuthController controller = Get.find<AuthController>();
+  double _height = 56;
+  GlobalKey _globalKey = GlobalKey();
+
+  @override
+  void initState() {
+    super.initState();
+    SchedulerBinding.instance!.addPostFrameCallback((_) {
+      setState(() {
+        _height = _globalKey.currentContext!.size!.height;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: LoginBackground(
-        child: Container(
-          width: double.infinity,
+        child: SingleChildScrollView(
+          physics: NeverScrollableScrollPhysics(),
           child: Form(
             key: _formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
                   width: size.height * 0.01,
@@ -44,6 +58,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 RoundedButton(
                   text: "SIGN IN",
+                  height: _height,
                   press: () {
                     if (_formKey.currentState!.validate()) {
                       controller.loginWithEmailAndPassword();

@@ -28,6 +28,7 @@ class WelcomePage extends StatelessWidget {
               ),
               RoundedButton(
                 text: "SIGN IN",
+                useDefaultHeight: true,
                 press: () {
                   Get.toNamed(Routes.LOGIN);
                 },
@@ -37,6 +38,7 @@ class WelcomePage extends StatelessWidget {
                 margin: EdgeInsets.symmetric(vertical: 10),
                 padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
                 width: size.width * 0.8,
+                height: size.height * 0.1,
                 child: Material(
                   child: RoundedOutlineButton(
                     strokeWidth: 4,
