@@ -14,91 +14,97 @@ class LoginBackground extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Container(
-        color: Colors.white,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              height: size.height * 0.01,
-            ),
-            Expanded(
-              flex: 2,
-              child: Column(
-                children: <Widget>[
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: Container(
-                      width: size.width * 0.7,
-                      height: size.height * 0.07,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.only(
-                            bottomRight: Radius.circular(20),
-                            topRight: Radius.circular(20)),
-                        child: Column(
-                          children: [
-                            Expanded(
-                              flex: 1,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    gradient: LinearGradient(colors: [
-                                  startLinearColor,
-                                  endLinearColor
-                                ])),
-                                padding: EdgeInsets.all(10),
-                                child: Container(
-                                  margin: EdgeInsets.only(right: 20),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Text(
-                                        "Sign in to ",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.normal,
-                                            fontSize: 18,
-                                            decoration: TextDecoration.none,
-                                            color: Colors.white),
+          color: Colors.white,
+          width: double.infinity,
+          height: size.height,
+          child: Stack(
+            alignment: Alignment.center,
+            children: <Widget>[
+              Positioned(
+                top: 0,
+                left: 0,
+                child: Column(
+                  children: [
+                    Column(
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: Container(
+                            width: size.width * 0.75,
+                            height: size.height * 0.25,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.only(
+                                bottomRight: Radius.circular(29),
+                              ),
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    flex: 1,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          gradient: LinearGradient(colors: [
+                                        startLinearColor,
+                                        endLinearColor
+                                      ])),
+                                      padding: EdgeInsets.all(10),
+                                      child: Container(
+                                        child: Center(
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            textBaseline:
+                                                TextBaseline.alphabetic,
+                                            children: [
+                                              Text(
+                                                "Welcome to ",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.w300,
+                                                    fontSize: 28,
+                                                    decoration:
+                                                        TextDecoration.none,
+                                                    color: Colors.white),
+                                              ),
+                                              SizedBox(
+                                                height: 5,
+                                              ),
+                                              Text(
+                                                "EndCoVi",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    decoration:
+                                                        TextDecoration.none,
+                                                    fontSize: 33,
+                                                    color: Colors.white),
+                                              )
+                                            ],
+                                          ),
+                                        ),
                                       ),
-                                      Text(
-                                        "EndCoVi",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            decoration: TextDecoration.none,
-                                            fontSize: 23,
-                                            color: Colors.white),
-                                      )
-                                    ],
+                                    ),
                                   ),
-                                ),
+                                ],
                               ),
                             ),
-                          ],
+                          ),
                         ),
-                      ),
+                        SizedBox(
+                          height: size.height * 0.01,
+                        ),
+                      ],
                     ),
-                  ),
-                  SizedBox(
-                    height: size.height * 0.01,
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              flex: 6,
-              child: child,
-            ),
-            Expanded(
-              flex: 3,
-              child: Align(
-                alignment: Alignment.bottomRight,
-                child: Container(
-                  child:
-                      Image.asset("assets/images/bottom_right_background.png"),
+                  ],
                 ),
               ),
-            ),
-          ],
-        ),
-      ),
+              Positioned(
+                bottom: 0,
+                right: 0,
+                child: Image.asset("assets/images/bottom_right_background.png"),
+              ),
+              child,
+            ],
+          )),
     );
   }
 }

@@ -17,11 +17,11 @@ class SplashController extends GetxController {
     final user = AuthenticService.instance.getCurrentUser();
 
     if (user == null) {
-      new Future.delayed(const Duration(seconds: 2), () {
+      new Future.delayed(const Duration(milliseconds: 2640), () {
         Get.offNamed(Routes.WELCOME);
       });
     } else {
-      new Future.delayed(const Duration(seconds: 1), () {
+      new Future.delayed(const Duration(milliseconds: 1320), () {
         Get.offAllNamed(Routes.DASHBOARD);
       });
     }
