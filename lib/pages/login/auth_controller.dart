@@ -1,5 +1,5 @@
 import 'package:endcovi/routes/app_routes.dart';
-import 'package:endcovi/services/auth/auth_services.dart';
+import 'package:endcovi/services/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
