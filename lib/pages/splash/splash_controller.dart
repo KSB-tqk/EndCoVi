@@ -1,5 +1,5 @@
 import 'package:endcovi/routes/app_routes.dart';
-import 'package:endcovi/services/auth/auth_services.dart';
+import 'package:endcovi/services/auth_service.dart';
 import 'package:get/get.dart';
 
 class SplashController extends GetxController {
