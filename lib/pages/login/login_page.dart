@@ -1,8 +1,10 @@
 import 'package:endcovi/components/rounded_button.dart';
 import 'package:endcovi/components/rounded_input_field.dart';
 import 'package:endcovi/components/rounded_password_field.dart';
+import 'package:endcovi/constants.dart';
 import 'package:endcovi/pages/login/auth_controller.dart';
 import 'package:endcovi/pages/login/widgets/login_background.dart';
+import 'package:endcovi/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
@@ -66,6 +68,28 @@ class _LoginPageState extends State<LoginPage> {
                   },
                   textColor: Colors.white,
                 ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "Don't have an account ? ",
+                      style: TextStyle(color: Colors.black54),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Get.offAndToNamed(Routes.SIGNUP);
+                      },
+                      child: Text(
+                        "Sign Up",
+                        style: TextStyle(
+                            color: kPrimaryColor, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
           ),
