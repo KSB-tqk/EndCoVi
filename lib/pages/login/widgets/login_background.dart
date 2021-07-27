@@ -22,7 +22,7 @@ class LoginBackground extends StatelessWidget {
             children: <Widget>[
               Positioned(
                 top: 0,
-                left: 0,
+                left: -10,
                 child: Column(
                   children: [
                     Column(
@@ -94,6 +94,7 @@ class LoginBackground extends StatelessWidget {
                         ),
                       ],
                     ),
+                    child,
                   ],
                 ),
               ),
@@ -102,7 +103,6 @@ class LoginBackground extends StatelessWidget {
                 right: 0,
                 child: Image.asset("assets/images/bottom_right_background.png"),
               ),
-              child,
             ],
           )),
     );

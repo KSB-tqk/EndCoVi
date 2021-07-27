@@ -1,5 +1,8 @@
+import 'package:endcovi/models/endcovi_user.dart';
+import 'package:endcovi/pages/dashboard/dashboard_controller.dart';
 import 'package:endcovi/routes/app_routes.dart';
 import 'package:endcovi/services/auth_service.dart';
+import 'package:endcovi/services/user_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -8,14 +11,37 @@ class AuthController extends GetxController {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
+  User? user;
   loginWithEmailAndPassword() async {
-    await AuthenticService.instance
+    user = await AuthenticService.instance
         .login(emailController.text, passwordController.text);
+    await loadUser(user);
   }
 
   signUpWithEmailAndPassword() async {
     await AuthenticService.instance
         .createUser(emailController.text, passwordController.text);
+    await loadUser(user);
+  }
+
+  static Future loadUser(User? user) async {
+    bool isExist = await UserService.instance.isUserExisted(user!);
+    if (!isExist) {
+      EndCoViUser ajentUser = EndCoViUser(
+        user.uid,
+        user.displayName ?? 'default_username'.tr,
+        "",
+        user.phoneNumber ?? "",
+        user.email ?? "",
+        user.photoURL ?? "",
+        "",
+      );
+      DashboardController.mainUser =
+          await UserService.instance.addUser(ajentUser);
+    } else {
+      DashboardController.mainUser =
+          await UserService.instance.getUser(user.uid);
+    }
   }
 
   signOutWithEmail() async {
