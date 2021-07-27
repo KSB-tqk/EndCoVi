@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  width: size.height * 0.01,
+                  height: 30,
                 ),
                 RoundedInputField(
                   controller: controller.emailController,

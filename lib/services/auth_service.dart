@@ -66,18 +66,20 @@ class AuthenticService {
     }
   }
 
-  Future signInWithGoogle() async {
+  Future<User?> signInWithGoogle() async {
     final googleUser = await googleSignIn.signIn();
-    if (googleUser == null) return;
-    _googleSignInAccount = googleUser;
+    if (googleUser != null) {
+      _googleSignInAccount = googleUser;
 
-    final googleAuth = await googleUser.authentication;
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
-
-    await FirebaseAuth.instance.signInWithCredential(credential);
+      final googleAuth = await googleUser.authentication;
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+      currentUser =
+          (await FirebaseAuth.instance.signInWithCredential(credential)).user;
+    }
+    return currentUser;
   }
 
   User? getCurrentUser() => FirebaseAuth.instance.currentUser;
