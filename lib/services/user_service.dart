@@ -22,11 +22,12 @@ class UserService {
     return endcoviUser;
   }
 
-  Future getUser(String uid) async {
-    EndCoViUser endcoviUser;
-    var snapshot = await database.collection('Users').doc(uid.toString()).get();
+  Future<EndCoViUser> getUser(String uid) async {
+    EndCoViUser endcoviUser = EndCoViUser.empty();
+    var snapshot = await database.collection('users').doc(uid.toString()).get();
     if (snapshot.exists) {
       endcoviUser = EndCoViUser.fromJson(snapshot.data());
     }
+    return endcoviUser;
   }
 }

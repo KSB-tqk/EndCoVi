@@ -27,19 +27,20 @@ class AuthController extends GetxController {
   static Future loadUser(User? user) async {
     bool isExist = await UserService.instance.isUserExisted(user!);
     if (!isExist) {
-      EndCoViUser ajentUser = EndCoViUser(
+      EndCoViUser tempUser = EndCoViUser(
         user.uid,
         user.displayName ?? 'default_username'.tr,
-        "",
-        user.phoneNumber ?? "",
         user.email ?? "",
         user.photoURL ?? "",
         "",
+        "",
+        "",
       );
-      DashboardController.mainUser =
-          await UserService.instance.addUser(ajentUser);
+      if (await UserService.instance.addUser(tempUser)) {
+        Get.find<DashboardController>().endcoviUser = tempUser;
+      }
     } else {
-      DashboardController.mainUser =
+      Get.find<DashboardController>().endcoviUser =
           await UserService.instance.getUser(user.uid);
     }
   }
@@ -47,5 +48,6 @@ class AuthController extends GetxController {
   signOutWithEmail() async {
     await FirebaseAuth.instance.signOut();
     Get.offAllNamed(Routes.LOGIN);
+    Get.find<DashboardController>().clear();
   }
 }
