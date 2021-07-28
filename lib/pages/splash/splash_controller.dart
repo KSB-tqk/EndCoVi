@@ -1,5 +1,7 @@
+import 'package:endcovi/pages/dashboard/dashboard_controller.dart';
 import 'package:endcovi/routes/app_routes.dart';
 import 'package:endcovi/services/auth_service.dart';
+import 'package:endcovi/services/user_service.dart';
 import 'package:get/get.dart';
 
 class SplashController extends GetxController {
@@ -21,9 +23,9 @@ class SplashController extends GetxController {
         Get.offNamed(Routes.WELCOME);
       });
     } else {
-      new Future.delayed(const Duration(milliseconds: 1320), () {
-        Get.offAllNamed(Routes.DASHBOARD);
-      });
+      Get.find<DashboardController>().endcoviUser = await UserService.instance
+          .getUser(user.uid)
+          .whenComplete(() => Get.offAllNamed(Routes.DASHBOARD));
     }
   }
 }
