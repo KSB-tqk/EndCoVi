@@ -27,6 +27,8 @@ class UserService {
     var snapshot = await database.collection('users').doc(uid.toString()).get();
     if (snapshot.exists) {
       endcoviUser = EndCoViUser.fromJson(snapshot.data());
+    } else {
+      print('Cant find document');
     }
     return endcoviUser;
   }

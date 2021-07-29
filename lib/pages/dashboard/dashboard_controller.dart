@@ -7,6 +7,8 @@ class DashboardController extends GetxController {
 
   EndCoViUser get endcoviUser => _mainUser!.value;
 
+  static late EndCoViUser mainUser;
+
   set endcoviUser(EndCoViUser value) => _mainUser!.value = value;
 
   void changeTabIndex(int index) {

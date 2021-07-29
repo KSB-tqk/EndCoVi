@@ -37,10 +37,10 @@ class AuthController extends GetxController {
         "",
       );
       if (await UserService.instance.addUser(tempUser)) {
-        Get.find<DashboardController>().endcoviUser = tempUser;
+        DashboardController.mainUser = tempUser;
       }
     } else {
-      Get.find<DashboardController>().endcoviUser =
+      DashboardController.mainUser =
           await UserService.instance.getUser(user.uid);
     }
   }

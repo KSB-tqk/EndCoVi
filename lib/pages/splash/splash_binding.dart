@@ -1,3 +1,4 @@
+import 'package:endcovi/pages/dashboard/dashboard_controller.dart';
 import 'package:endcovi/pages/splash/splash_controller.dart';
 import 'package:get/get.dart';
 

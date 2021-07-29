@@ -23,7 +23,7 @@ class SplashController extends GetxController {
         Get.offNamed(Routes.WELCOME);
       });
     } else {
-      Get.find<DashboardController>().endcoviUser = await UserService.instance
+      DashboardController.mainUser = await UserService.instance
           .getUser(user.uid)
           .whenComplete(() => Get.offAllNamed(Routes.DASHBOARD));
     }
