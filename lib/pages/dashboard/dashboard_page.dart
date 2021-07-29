@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DashboardPage extends StatelessWidget {
+  final DashboardController dashboardController =
+      Get.find<DashboardController>();
   @override
   Widget build(BuildContext context) {
     return GetBuilder<DashboardController>(

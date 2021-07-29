@@ -57,7 +57,7 @@ class AuthenticService {
     return currentUser;
   }
 
-  void singOut() async {
+  void signOut() async {
     try {
       await _firebaseAuth!.signOut();
     } catch (e) {

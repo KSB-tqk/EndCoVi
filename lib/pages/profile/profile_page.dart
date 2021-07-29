@@ -3,6 +3,7 @@ import 'package:endcovi/models/endcovi_user.dart';
 import 'package:endcovi/pages/dashboard/dashboard_controller.dart';
 import 'package:endcovi/pages/login/auth_controller.dart';
 import 'package:endcovi/pages/profile/profile_controller.dart';
+import 'package:endcovi/services/user_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,8 +12,7 @@ import 'widgets/InfoBar.dart';
 class ProfilePage extends GetView<ProfileController> {
   @override
   Widget build(BuildContext context) {
-    final DashboardController dashboardController =
-        Get.find<DashboardController>();
+    final ProfileController controller = Get.find<ProfileController>();
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -43,11 +43,7 @@ class ProfilePage extends GetView<ProfileController> {
                           ),
                           Container(
                             height: 20,
-                            child: GetX<DashboardController>(
-                              builder: (_) {
-                                return Text(_.endcoviUser.uid);
-                              },
-                            ),
+                            child: Text('{$DashboardController.mainUser.mail}'),
                           ),
                           SizedBox(
                             height: 6,
