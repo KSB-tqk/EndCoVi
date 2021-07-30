@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 class DashboardController extends GetxController {
   var tabIndex = 0;
-  static Rx<EndCoViUser>? _mainUser = EndCoViUser.empty().obs;
+  static Rx<EndCoViUser>? _mainUser = EndCoViUser().obs;
 
   EndCoViUser get endcoviUser => _mainUser!.value;
 
@@ -17,6 +17,6 @@ class DashboardController extends GetxController {
   }
 
   void clear() {
-    _mainUser!.value = EndCoViUser.empty();
+    _mainUser!.value = EndCoViUser();
   }
 }

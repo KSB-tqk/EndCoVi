@@ -23,7 +23,7 @@ class UserService {
   }
 
   Future<EndCoViUser> getUser(String uid) async {
-    EndCoViUser endcoviUser = EndCoViUser.empty();
+    EndCoViUser endcoviUser = EndCoViUser();
     var snapshot = await database.collection('users').doc(uid.toString()).get();
     if (snapshot.exists) {
       endcoviUser = EndCoViUser.fromJson(snapshot.data());

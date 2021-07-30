@@ -1,4 +1,6 @@
+import 'package:endcovi/models/endcovi_user.dart';
 import 'package:endcovi/pages/dashboard/dashboard_controller.dart';
+import 'package:endcovi/pages/login/auth_controller.dart';
 import 'package:endcovi/routes/app_routes.dart';
 import 'package:endcovi/services/auth_service.dart';
 import 'package:endcovi/services/user_service.dart';
@@ -23,9 +25,8 @@ class SplashController extends GetxController {
         Get.offNamed(Routes.WELCOME);
       });
     } else {
-      DashboardController.mainUser = await UserService.instance
-          .getUser(user.uid)
-          .whenComplete(() => Get.offAllNamed(Routes.DASHBOARD));
+      AuthController.endcoviUser = await UserService.instance.getUser(user.uid);
+      Get.offNamed(Routes.DASHBOARD);
     }
   }
 }

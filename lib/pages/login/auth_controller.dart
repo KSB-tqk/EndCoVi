@@ -11,7 +11,11 @@ class AuthController extends GetxController {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
+
+  late Rx<User> firebaseUser;
+  static EndCoViUser? endcoviUser;
   User? user;
+
   loginWithEmailAndPassword() async {
     user = await AuthenticService.instance
         .login(emailController.text, passwordController.text);
@@ -28,13 +32,13 @@ class AuthController extends GetxController {
     bool isExist = await UserService.instance.isUserExisted(user!);
     if (!isExist) {
       EndCoViUser tempUser = EndCoViUser(
-        user.uid,
-        user.displayName ?? 'default_username'.tr,
-        user.email ?? "",
-        user.photoURL ?? "",
-        "",
-        "",
-        "",
+        uid: user.uid,
+        userName: user.displayName ?? 'default_username'.tr,
+        mail: user.email ?? "empty",
+        avatarUrl: user.photoURL ?? "empty",
+        bio: "empty",
+        address: "empty",
+        gender: "empty",
       );
       if (await UserService.instance.addUser(tempUser)) {
         DashboardController.mainUser = tempUser;
