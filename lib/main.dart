@@ -3,7 +3,6 @@ import 'package:endcovi/pages/dashboard/dashboard_binding.dart';
 import 'package:endcovi/pages/splash/splash_binding.dart';
 import 'package:endcovi/routes/app_page.dart';
 import 'package:endcovi/routes/app_routes.dart';
-import 'package:endcovi/utils/root.dart';
 import 'package:endcovi/value/lang/localization_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

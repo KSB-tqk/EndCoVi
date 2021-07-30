@@ -1,6 +1,7 @@
 import 'package:endcovi/constants.dart';
 import 'package:endcovi/models/endcovi_user.dart';
 import 'package:endcovi/pages/dashboard/dashboard_controller.dart';
+import 'package:endcovi/pages/home/home_controller.dart';
 import 'package:endcovi/pages/login/auth_controller.dart';
 import 'package:endcovi/pages/profile/profile_controller.dart';
 import 'package:endcovi/services/user_service.dart';
@@ -42,9 +43,9 @@ class ProfilePage extends GetView<ProfileController> {
                             height: 16,
                           ),
                           Container(
-                            height: 20,
-                            child: Text('{$DashboardController.mainUser.mail}'),
-                          ),
+                              height: 20,
+                              child: Text(AuthController.endcoviUser!.userName
+                                  .toString())),
                           SizedBox(
                             height: 6,
                           ),

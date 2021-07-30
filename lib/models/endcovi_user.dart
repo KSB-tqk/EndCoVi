@@ -7,18 +7,14 @@ class EndCoViUser {
   late String avatarUrl;
   late String bio;
 
-  EndCoViUser.empty() {}
-
-  EndCoViUser(String theUid, String theUsername, String theMail,
-      String theAvatarUrl, String theGender, String theAddress, String theBio) {
-    this.uid = theUid;
-    this.userName = theUsername;
-    this.mail = theMail;
-    this.avatarUrl = theAvatarUrl;
-    this.gender = theGender;
-    this.address = theAddress;
-    this.bio = theBio;
-  }
+  EndCoViUser(
+      {this.uid = "",
+      this.userName = "",
+      this.mail = "",
+      this.avatarUrl = "",
+      this.gender = "",
+      this.address = "",
+      this.bio = ""});
 
   EndCoViUser.fromJson(Map<String, dynamic>? data) {
     uid = data!['uid'];
@@ -26,7 +22,7 @@ class EndCoViUser {
     mail = data['mail'];
     gender = data['gender'];
     address = data['address'];
-    avatarUrl = data['avaterUrl'];
+    avatarUrl = data['avatarUrl'];
     bio = data['bio'];
   }
 
