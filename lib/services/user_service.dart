@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:endcovi/models/endcovi_user.dart';
+import 'package:endcovi/pages/login/auth_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class UserService {
@@ -31,5 +32,12 @@ class UserService {
       print('Cant find document');
     }
     return endcoviUser;
+  }
+
+  Future uploadProfileUrl(String profileUrl) async {
+    await database
+        .collection('users')
+        .doc(AuthController.endcoviUser!.uid)
+        .update({'avatarUrl': profileUrl});
   }
 }
