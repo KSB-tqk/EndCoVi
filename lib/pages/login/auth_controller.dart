@@ -1,5 +1,5 @@
+import 'dart:io';
 import 'package:endcovi/models/endcovi_user.dart';
-import 'package:endcovi/pages/dashboard/dashboard_controller.dart';
 import 'package:endcovi/routes/app_routes.dart';
 import 'package:endcovi/services/auth_service.dart';
 import 'package:endcovi/services/user_service.dart';
@@ -14,6 +14,7 @@ class AuthController extends GetxController {
 
   late Rx<User> firebaseUser;
   static EndCoViUser? endcoviUser;
+  static File? userImage;
   User? user;
 
   loginWithEmailAndPassword() async {
@@ -41,17 +42,16 @@ class AuthController extends GetxController {
         gender: "empty",
       );
       if (await UserService.instance.addUser(tempUser)) {
-        DashboardController.mainUser = tempUser;
+        AuthController.endcoviUser = tempUser;
       }
     } else {
-      DashboardController.mainUser =
-          await UserService.instance.getUser(user.uid);
+      AuthController.endcoviUser = await UserService.instance.getUser(user.uid);
     }
   }
 
   signOutWithEmail() async {
     await FirebaseAuth.instance.signOut();
     Get.offAllNamed(Routes.LOGIN);
-    Get.find<DashboardController>().clear();
+    AuthController.endcoviUser = new EndCoViUser();
   }
 }

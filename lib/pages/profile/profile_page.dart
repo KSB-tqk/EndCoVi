@@ -1,10 +1,6 @@
 import 'package:endcovi/constants.dart';
-import 'package:endcovi/models/endcovi_user.dart';
-import 'package:endcovi/pages/dashboard/dashboard_controller.dart';
-import 'package:endcovi/pages/home/home_controller.dart';
 import 'package:endcovi/pages/login/auth_controller.dart';
 import 'package:endcovi/pages/profile/profile_controller.dart';
-import 'package:endcovi/services/user_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,31 +17,61 @@ class ProfilePage extends GetView<ProfileController> {
         child: Stack(
           children: [
             Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
-                      height: size.height * 0.4,
                       decoration: BoxDecoration(color: Colors.white70),
                       child: Column(
                         children: [
                           SizedBox(
                             height: 36,
                           ),
-                          CircleAvatar(
-                            radius: 40,
-                            backgroundImage: null,
-                            backgroundColor: kPrimaryLightColor,
+                          Container(
+                            height: size.height * 0.2,
+                            child: InkWell(
+                              onTap: () => controller.getAndUploadImage(),
+                              child: GetBuilder(
+                                builder: (ProfileController controller) {
+                                  if (AuthController.endcoviUser!.avatarUrl ==
+                                      "empty") {
+                                    return CircleAvatar(
+                                      radius: 100,
+                                      backgroundImage:
+                                          controller.image.path != "null"
+                                              ? FileImage(controller.image)
+                                              : null,
+                                      backgroundColor: kPrimaryLightColor,
+                                    );
+                                  } else if (controller.image.path == "null") {
+                                    return CircleAvatar(
+                                      radius: 100,
+                                      backgroundImage: NetworkImage(
+                                          "${AuthController.endcoviUser!.avatarUrl}"),
+                                      backgroundColor: Colors.grey,
+                                    );
+                                  } else {
+                                    return CircleAvatar(
+                                      radius: 100,
+                                      backgroundImage:
+                                          FileImage(controller.image),
+                                      backgroundColor: kPrimaryColor,
+                                    );
+                                  }
+                                },
+                              ),
+                            ),
                           ),
                           SizedBox(
                             height: 16,
                           ),
                           Container(
                               height: 20,
-                              child: Text(AuthController.endcoviUser!.userName
-                                  .toString())),
+                              child: Text(
+                                  AuthController.endcoviUser!.mail.toString())),
                           SizedBox(
                             height: 6,
                           ),
